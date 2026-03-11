@@ -1,0 +1,117 @@
+# Byte-compiled / optimized / DLLs
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+ENV/
+env.bak/
+venv.bak/
+
+# Pip cache
+pip-log.txt
+pip-delete-this-directory.txt
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+**/Dockerfile
+
+# Logs and databases
+*.log
+*.sqlite3
+*.db
+*.sql
+backend/app/uploads/
+
+# Python cache folders inside packages
+**/__pycache__/
+
+# Bot cache
+backend/bot/__pycache__/
+
+# PID files
+*.pid
+
+# Secrets
+.env
+.env.*
+secrets.json
+*.pem
+*.key
+
+# ML models, checkpoints and caches
+models/
+*.ckpt
+*.pth
+*.pt
+transformers_cache/
+huggingface/
+cache/
+hf_cache/
+
+# Qdrant / vector stores local dumps
+qdrant_storage/
+qdrant_data/
+
+# Jupyter
+.ipynb_checkpoints
+
+# other
+coverage/
+htmlcov/
+
