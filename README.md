@@ -26,21 +26,21 @@ The project consists of two main components:
 ### Prerequisites
 
 - Python 3.12+
-- Docker and docker-compose (for containerized deployment)
+- A Qdrant instance and a Supabase project
 
 ### Setup
 
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd EnterprisePlatform
+git clone https://github.com/AlmatUzakbayev/Enterprise-Platform.git
+cd Enterprise-Platform
 ```
 
 2. Install dependencies:
 
 ```bash
-pip install -r backend/requirements.txt
+pip install -r requirements.txt
 ```
 
 3. Configure environment variables by creating a `.env` file:
@@ -56,12 +56,6 @@ BACKEND_URL=http://127.0.0.1:8080
 ```
 
 ## Usage
-
-### Running with Docker
-
-```bash
-docker-compose up --build
-```
 
 ### Running Locally
 
@@ -84,25 +78,30 @@ python -m bot.tg_app
 
 ### Document Upload
 
-- **Endpoint**: `/api/v1/upload`
+- **Endpoint**: `/api/v1/documents/upload`
 - **Method**: `POST`
-- **Request**: Multipart form with `file` field
-- **Response**: Processing status and document ID
+- **Request**: Multipart form with `file` (PDF, DOCX or TXT) and `telegram_user_id`
+- **Response**: Document id, language, summary and chunk count
+
+Other document endpoints: `GET /api/v1/documents/` (list), `DELETE /api/v1/documents/{document_id}`.
 
 ### Question Answering
 
-- **Endpoint**: `/api/v1/ask`
+- **Endpoint**: `/api/v1/chat/`
 - **Method**: `POST`
 - **Request Body**:
 
 ```json
 {
-  "document_id": "document_uuid",
-  "question": "Your question here"
+  "question": "Your question here",
+  "document_id": 1,
+  "telegram_user_id": 123456
 }
 ```
 
-- **Response**: AI-generated answer based on document content
+- **Response**: `answer`, `sources`, `tokens_used`, `retrieval_score`
+
+Chat history: `GET /api/v1/chat/history?telegram_user_id=...&document_id=...`.
 
 ## Development Notes
 
